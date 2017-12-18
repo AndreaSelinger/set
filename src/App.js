@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Card color="blue" shape="minion" filling="striped"/>
+        <Card color="red" shape="squiggle" filling="solid"/>
       </div>
     );
   }
@@ -18,9 +18,17 @@ class Card extends Component {
   render() {
 
     var rectStyle = {stroke:"none", fill:this.props.color};
-    var content = {};
-// if(this.props.filling ="striped"){content="url(#pattern)"}
-//  else {content="none"};
+    var content;
+
+  if (this.props.filling === "striped"){
+  content="url(#pattern)";
+  }
+  else if(this.props.filling === "solid"){
+    content="this.props.color"; 
+  }
+  else {
+   content="none";
+  }
 
     return (
       <div className="Card">
